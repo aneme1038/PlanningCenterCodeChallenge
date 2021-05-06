@@ -5,8 +5,10 @@ import AddMovie from './components/AddMovie.js';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Screen it</h1>
+      <header className="container header">
+        <div className="row">
+          <h1 className="hdrHead">Screen it</h1>
+        </div>
       </header>
       <AddMovie />
     </div>
