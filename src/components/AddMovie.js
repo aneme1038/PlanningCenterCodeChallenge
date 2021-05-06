@@ -2,6 +2,15 @@
 import React from 'react';
 //Component
 class AddMovie extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            movieList: [],
+            movieName: '',
+            movieCategory: '',
+            rate: ''
+        }
+    }
     render() {
         return(
             <div className="container">
@@ -12,7 +21,7 @@ class AddMovie extends React.Component {
                     </div>
                     <div className="formRow">
                         <label for="movieCategory" className="sfPro formLabel col-md-2" id="formLabel2">Category</label>
-                        <select className="form-select col-md-6" id="formDropdown" aria-label="Movie Category Dropdown">
+                        <select className="form-select col-md-6" name="movieCategory" id="formDropdown" aria-label="Movie Category Dropdown">
                             <option selected className="sfPro">Select a category</option>
                             <option value="Drama">Drama</option>
                             <option value="Science Fiction">Science Fiction</option>
@@ -28,7 +37,7 @@ class AddMovie extends React.Component {
                         </select>
                     </div>
                     <div className="formRow" id="ratingRow">
-                        <label for="movieRating" className="sfPro formLabel col-md-2" id="formLabel3">Rating</label>
+                        <label for="rate" className="sfPro formLabel col-md-2" id="formLabel3">Rating</label>
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5" />
                             <label for="star5" title="text">5 stars</label>
