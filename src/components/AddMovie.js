@@ -5,8 +5,8 @@ import React from 'react';
 class AddMovie extends React.Component {
     render() {
         return(
-            <div>
-                Test
+            <div className="container">
+                
             </div>
         )
     }
