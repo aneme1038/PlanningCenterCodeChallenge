@@ -20,7 +20,7 @@ class App extends React.Component {
             <h1 className="hdrHead">Screen it</h1>
           </div>
         </header>
-        <AddMovie movieList={this.state.movieList} handleAdd={this.addToMovieList}/>
+        <AddMovie movieList={this.state.movieList} handleAdd={this.addToMovieList} />
         <MovieList movieList={this.state.movieList} />
       </div>
     );

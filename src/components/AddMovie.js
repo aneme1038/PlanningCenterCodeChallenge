@@ -10,30 +10,54 @@ class AddMovie extends React.Component {
             movieCategory: '',
             rate: ''
         }
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeCategory = this.handleChangeCategory.bind(this);
+        this.handleChangeRating = this.handleChangeRating.bind(this);
     }
 
-    handleChange(e) {
-        this.setState( { [e.target.id]: e.target.value})
+    handleChangeName(e) {
+        this.setState({movieName: e.target.value});
+    }
+    handleChangeCategory(e) {
+        this.setState({movieCategory: e.target.value});
+    }
+    handleChangeRating(e) {
+        this.setState({rate: e.target.value});
     }
     handleSubmit(e) {
-        this.props.onSubmit({
-
-        })
+       e.preventDefault();
+       //create new movie object based off user input
+       const newMovie = {
+           movieName: this.state.movieName,
+           movieCategory: this.state.movieCategory,
+           rate: this.state.rate
+       }
+       console.log(newMovie);
+       //create new array based off new movie and current movie list
+       const newMovieList = [newMovie, ...this.state.movieList]
+       console.log(newMovieList);
+    //    this.props.movieList = newMovieList;
+       //set the state
+       this.setState({
+           movieList: newMovieList,
+           movieName: '',
+           movieCategory: '',
+           rate: ''
+       })
     }
     render() {
         return(
             <div className="container">
                 <form className="addMovieForm" onSubmit={this.handleSubmit}>
                     <div className="formRow">
-                        <label for="movieName" className="sfPro formLabel col-md-2" id="formLabel1">Name</label>
-                        <input type="text" className="form-control col-md-6" id="movieName" name="movieName" value={this.state.movieName} onChange={this.handleChange} placeholder="Name of the movie"/>        
+                        <label htmlFor="movieName" className="sfPro formLabel col-md-2" id="formLabel1">Name</label>
+                        <input type="text" className="form-control col-md-6" id="movieName" name="movieName" value={this.state.movieName} onChange={this.handleChangeName} placeholder="Name of the movie"/>        
                     </div>
                     <div className="formRow">
-                        <label for="movieCategory" className="sfPro formLabel col-md-2" id="formLabel2">Category</label>
-                        <select className="form-select col-md-6" value={this.state.movieCategory} onChange={this.handleChange} name="movieCategory" id="formDropdown" aria-label="Movie Category Dropdown">
-                            <option selected className="sfPro">Select a category</option>
+                        <label htmlFor="movieCategory" className="sfPro formLabel col-md-2" id="formLabel2">Category</label>
+                        <select className="form-select col-md-6" value={this.state.movieCategory} onChange={this.handleChangeCategory} name="movieCategory" id="formDropdown" aria-label="Movie Category Dropdown">
+                            <option defaultValue className="sfPro">Select a category</option>
                             <option value="Drama">Drama</option>
                             <option value="Science Fiction">Science Fiction</option>
                             <option value="Historical Film">Historical Film</option>
@@ -48,18 +72,18 @@ class AddMovie extends React.Component {
                         </select>
                     </div>
                     <div className="formRow" id="ratingRow">
-                        <label for="rate" className="sfPro formLabel col-md-2" id="formLabel3">Rating</label>
+                        <label htmlFor="rate" className="sfPro formLabel col-md-2" id="formLabel3">Rating</label>
                         <div className="rate">
-                            <input type="radio" id="star5" name="rate" value="5" />
-                            <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" />
-                            <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" />
-                            <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" />
-                            <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" />
-                            <label for="star1" title="text">1 star</label>
+                            <input type="radio" id="star5" name="rate" value="5" checked={this.state.rate === "5"} onChange={this.handleChangeRating}/>
+                            <label htmlFor="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" checked={this.state.rate === "4"} onChange={this.handleChangeRating}/>
+                            <label htmlFor="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" checked={this.state.rate === "3"} onChange={this.handleChangeRating}/>
+                            <label htmlFor="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" checked={this.state.rate === "2"} onChange={this.handleChangeRating}/>
+                            <label htmlFor="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" checked={this.state.rate === "1"} onChange={this.handleChangeRating}/>
+                            <label htmlFor="star1" title="text">1 star</label>
                         </div>
                     </div>
                     <div className="formRow">
