@@ -8,7 +8,8 @@ class AddMovie extends React.Component {
             movieList: this.props.movieList,
             movieName: this.props.movieName,
             movieCategory: this.props.movieCategory,
-            rate: this.props.rate
+            rate: this.props.rate,
+            abbreviation: this.props.abbreviation
         }
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,15 +32,17 @@ class AddMovie extends React.Component {
        const newMovie = {
             movieName: this.state.movieName,
             movieCategory: this.state.movieCategory,
-            rate: this.state.rate
-        }
+            rate: this.state.rate,
+            abbreviation: this.state.movieName.match(/\b([A-Z])/g).join('')
+       }
         //send over newMovie to parent component
         this.props.handleAdd(newMovie);
         //reset form
         this.setState({
             movieName: '',
             movieCategory: '',
-            rate: ''
+            rate: '',
+            abbreviation: ''
         })
     }
     render() {

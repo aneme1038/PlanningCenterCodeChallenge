@@ -61,7 +61,6 @@
   background-color:#7EB2FF;
 }
 form {
-  border-bottom: 0.5px solid rgb(211, 211, 211);
   width: 100%;
 }
 /*Rating*/
@@ -103,3 +102,45 @@ form {
   color: #c59b08;
 }
 /*The above Rating was modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+/*MOVIE LIST DISPLAY*/
+.movieList {
+  border-top: 1px solid rgb(211, 211, 211);
+}
+.movie {
+  display: flex;
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+.movieCol1 {
+  display: flex;
+  max-width: 10em;
+  padding: 0;
+  margin-left: 10px;
+}
+.movieCol2 {
+  display: flex;
+  max-width: 7em;
+  
+}
+.movieAbbr {
+  display: flex;
+  background-color: #7EB2FF;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7px;
+  margin-right: 20px;
+}
+.cr-abbr {
+  font-size: 10px;
+  font-weight: lighter;
+}
+.movieGenre {
+  font-family: 'SF Pro Display';
+  font-size: 8px;
+  color: gray;
+}

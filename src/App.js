@@ -10,7 +10,8 @@ class App extends React.Component {
       movieList: [],
       movieName: '',
       movieCategory: '',
-      rate: ''
+      rate: '',
+      abbreviation: ''
     }
     this.addToMovieList = this.addToMovieList.bind(this);
   }
@@ -27,7 +28,8 @@ class App extends React.Component {
         movieList: newMovieList,
         movieName: '',
         movieCategory: '',
-        rate: ''
+        rate: '',
+        abbreviation: ''
     })
   }
  
@@ -43,7 +45,8 @@ class App extends React.Component {
           movieList={this.state.movieList} 
           movieName={this.state.movieName} 
           movieCategory={this.state.movieCategory} 
-          rate={this.state.rate} 
+          rate={this.state.rate}
+          abbreviation={this.state.abbreviation}
           handleAdd={this.addToMovieList} 
         />
         <MovieList movieList={this.state.movieList} />
