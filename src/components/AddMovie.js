@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
                             <option value="Drama">Fantasy</option>
                         </select>
                     </div>
-                    <div className="formRow">
+                    <div className="formRow" id="ratingRow">
                         <label for="movieRating" className="sfPro formLabel col-md-2" id="formLabel3">Rating</label>
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5" />
@@ -41,6 +41,9 @@ class AddMovie extends React.Component {
                             <input type="radio" id="star1" name="rate" value="1" />
                             <label for="star1" title="text">1 star</label>
                         </div>
+                    </div>
+                    <div className="formRow">
+                        <button className="btn btn-primary formSubmit" type="submit">Add Movie</button>
                     </div>
                 </form>
             </div>

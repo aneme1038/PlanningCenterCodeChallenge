@@ -50,11 +50,27 @@
 #formDropdown {
   color:grey;
 }
+.formSubmit {
+  width: 100%;
+  font-family: 'SF Pro Display';
+  background-color: #7EB2FF;
+  border: 1px solid #7EB2F0;
+  margin-bottom: 25px;
+}
+.formSubmit:hover {
+  background-color:#7EB2FF;
+}
+form {
+  border-bottom: 0.5px solid rgb(211, 211, 211);
+  width: 100%;
+}
 /*Rating*/
 .rate {
-  float: right;
   height: 46px;
-  padding: 0 10px;
+}
+#ratingRow {
+  display: flex;
+  justify-content: space-between;
 }
 .rate:not(:checked) > input {
   position: absolute;
