@@ -10,6 +10,31 @@ class AddMovie extends React.Component {
             movieCategory: '',
             rate: ''
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState( { [e.target.id]: e.target.value})
+    }
+    handleSubmit(e) {
+        //prevents default behavior of submitting a form
+        e.preventDefault()
+        //create the new movie object based off of user input
+        const newMovie = {
+            movieName: this.state.movieName,
+            movieCategory: this.state.movieCategory,
+            rate: this.state.rate
+        }
+        //create new array based off of new Movie and current movie list array
+        const newMovieArray = [newMovie, ...this.state.movieList]
+        //set stsate with new array and reset values back to empty strings to clear inputs
+        this.setState({
+            movieList: newMovieArray,
+            movieName: '',
+            movieCategory: '',
+            rate: ''
+        })
     }
     render() {
         return(
@@ -21,7 +46,7 @@ class AddMovie extends React.Component {
                     </div>
                     <div className="formRow">
                         <label for="movieCategory" className="sfPro formLabel col-md-2" id="formLabel2">Category</label>
-                        <select className="form-select col-md-6" name="movieCategory" id="formDropdown" aria-label="Movie Category Dropdown">
+                        <select className="form-select col-md-6" value={this.state.movieCategory} onChange={this.handleChange} name="movieCategory" id="formDropdown" aria-label="Movie Category Dropdown">
                             <option selected className="sfPro">Select a category</option>
                             <option value="Drama">Drama</option>
                             <option value="Science Fiction">Science Fiction</option>
