@@ -6,9 +6,9 @@ class AddMovie extends React.Component {
         super(props);
         this.state = {
             movieList: this.props.movieList,
-            movieName: '',
-            movieCategory: '',
-            rate: ''
+            movieName: this.props.movieName,
+            movieCategory: this.props.movieCategory,
+            rate: this.props.rate
         }
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,22 +29,18 @@ class AddMovie extends React.Component {
        e.preventDefault();
        //create new movie object based off user input
        const newMovie = {
-           movieName: this.state.movieName,
-           movieCategory: this.state.movieCategory,
-           rate: this.state.rate
-       }
-       console.log(newMovie);
-       //create new array based off new movie and current movie list
-       const newMovieList = [newMovie, ...this.state.movieList]
-       console.log(newMovieList);
-    //    this.props.movieList = newMovieList;
-       //set the state
-       this.setState({
-           movieList: newMovieList,
-           movieName: '',
-           movieCategory: '',
-           rate: ''
-       })
+            movieName: this.state.movieName,
+            movieCategory: this.state.movieCategory,
+            rate: this.state.rate
+        }
+        //send over newMovie to parent component
+        this.props.handleAdd(newMovie);
+        //reset form
+        this.setState({
+            movieName: '',
+            movieCategory: '',
+            rate: ''
+        })
     }
     render() {
         return(
