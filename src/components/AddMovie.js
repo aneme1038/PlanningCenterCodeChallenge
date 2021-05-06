@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            movieList: [],
+            movieList: this.props.movieList,
             movieName: '',
             movieCategory: '',
             rate: ''
@@ -18,22 +18,8 @@ class AddMovie extends React.Component {
         this.setState( { [e.target.id]: e.target.value})
     }
     handleSubmit(e) {
-        //prevents default behavior of submitting a form
-        e.preventDefault()
-        //create the new movie object based off of user input
-        const newMovie = {
-            movieName: this.state.movieName,
-            movieCategory: this.state.movieCategory,
-            rate: this.state.rate
-        }
-        //create new array based off of new Movie and current movie list array
-        const newMovieArray = [newMovie, ...this.state.movieList]
-        //set stsate with new array and reset values back to empty strings to clear inputs
-        this.setState({
-            movieList: newMovieArray,
-            movieName: '',
-            movieCategory: '',
-            rate: ''
+        this.props.onSubmit({
+
         })
     }
     render() {
