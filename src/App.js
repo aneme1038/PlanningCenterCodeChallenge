@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import AddMovie from './components/AddMovie.js';
+import MovieList from './components/MovieList.js';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         </div>
       </header>
       <AddMovie />
+      <MovieList />
     </div>
   );
 }
