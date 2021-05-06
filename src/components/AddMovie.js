@@ -5,26 +5,26 @@ class AddMovie extends React.Component {
     render() {
         return(
             <div className="container">
-                <form className="addMovieForm">
+                <form className="addMovieForm" onSubmit={this.handleSubmit}>
                     <div className="formRow">
                         <label for="movieName" className="sfPro formLabel col-md-2" id="formLabel1">Name</label>
-                        <input type="text" className="form-control col-md-6" id="movieName" name="movieName" placeholder="Name of the movie"/>        
+                        <input type="text" className="form-control col-md-6" id="movieName" name="movieName" value={this.state.movieName} onChange={this.handleChange} placeholder="Name of the movie"/>        
                     </div>
                     <div className="formRow">
                         <label for="movieCategory" className="sfPro formLabel col-md-2" id="formLabel2">Category</label>
                         <select className="form-select col-md-6" id="formDropdown" aria-label="Movie Category Dropdown">
                             <option selected className="sfPro">Select a category</option>
                             <option value="Drama">Drama</option>
-                            <option value="Drama">Science Fiction</option>
-                            <option value="Drama">Historical Film</option>
-                            <option value="Drama">Comedy</option>
-                            <option value="Drama">Horror</option>
-                            <option value="Drama">Musical</option>
-                            <option value="Drama">Action</option>
-                            <option value="Drama">Romance</option>
-                            <option value="Drama">Documentary</option>
-                            <option value="Drama">Fiction</option>
-                            <option value="Drama">Fantasy</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Historical Film">Historical Film</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Action">Action</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
                         </select>
                     </div>
                     <div className="formRow" id="ratingRow">
