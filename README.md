@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and created by Aaron T Neme for the purposes of completing a coding challenge sent by Planning Center. All code besides that created and bootstrapped with Create React App is Aaron's.
 
+## Screen it Screenshot
+![alt text](https://i.imgur.com/Epsig6H.png)
+
 ## Coding Challenge Description
 
 The challenge started off a bit slow and picked up the pace. I was able to complete nearly all functionality and got everything as closely and accurately as I could, barring the star ratings. I could not quite get the exact icon unfortunately from font-awesome or another website so I switched to a simpler format in html symbol code and then used a bit of html and css to examples to dangle up a value system I could pull from.
@@ -20,8 +23,7 @@ In the end, I may not have got the Edit Button, Delete button, and Show Movie In
 ## API Request Max Count
 The total amount of requests on my public api key that I can use is 1000. Please use those requests at your discretion within a 24 hour period.
 
-## Screen it Screenshot
-![alt text](https://i.imgur.com/Epsig6H.png)
+
 
 ## Available Scripts
 
