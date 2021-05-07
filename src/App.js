@@ -12,18 +12,26 @@ class App extends React.Component {
       movieCategory: '',
       rate: '',
       abbreviation: '',
-      id: ''
+      index: ''
     }
     this.addToMovieList = this.addToMovieList.bind(this);
-    
+    this.editMovie = this.editMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
+  }
+
+  componentDidMount(){
+    fetch(`https://www.omdbapi.com/?apikey=${APIKEY}&`)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result);
+      }
+    )
   }
 
   addToMovieList(newMovie) {
-    
-    console.log(newMovie);
     //create new array based off new movie and current movie list
     const newMovieList = [newMovie, ...this.state.movieList]
-    console.log(newMovieList);
     //    this.props.movieList = newMovieList;
     //set the state
     this.setState({
@@ -31,9 +39,18 @@ class App extends React.Component {
         movieName: '',
         movieCategory: '',
         rate: '',
-        abbreviation: '',
-        id: ''
+        abbreviation: ''
     })
+  }
+  editMovie(index) {
+    
+  }
+  deleteMovie(index) {
+    console.log(index);
+  //   const movies = this.state.movieList.filter(movie => console.log(movie))
+  //   this.setState({
+  //     movieList: movies
+  //   })
   }
  
   render(){
@@ -52,7 +69,13 @@ class App extends React.Component {
           abbreviation={this.state.abbreviation}
           handleAdd={this.addToMovieList} 
         />
-        <MovieList movieList={this.state.movieList} />
+        <MovieList 
+          movieList={this.state.movieList} 
+          editMovie={this.editMovie} 
+          deleteMovie={this.deleteMovie}
+          index={this.state.index}
+
+        />
       </div>
     );
   }
