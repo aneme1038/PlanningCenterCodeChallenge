@@ -21,7 +21,7 @@ In the end, I may not have got the Edit Button, Delete button, and Show Movie In
 The total amount of requests on my public api key that I can use is 1000. Please use those requests at your discretion within a 24 hour period.
 
 ## Screen it Screenshot
-https://i.imgur.com/Epsig6H.png
+![alt text](https://i.imgur.com/Epsig6H.png)
 
 ## Available Scripts
 
