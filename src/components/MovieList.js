@@ -77,8 +77,8 @@ class MovieList extends React.Component {
                                 {this.handleRating(movie.rate)}
                             </div>
                             <div className="danger">
-                                <button className="btn btn-sm editBtn">✎</button>
-                                <button className="btn btn-sm deleteBtn">{/*Button icon borrowed from bootstrap icons*/}
+                                <button className="btn btn-sm editBtn" onClick={this.props.editMovie(movie)}>✎</button>
+                                <button className="btn btn-sm deleteBtn" onClick={this.props.deleteMovie(movie)}>{/*Button icon borrowed from bootstrap icons*/}
                                     <svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         width="16" 

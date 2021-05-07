@@ -15,7 +15,7 @@ class App extends React.Component {
       id: ''
     }
     this.addToMovieList = this.addToMovieList.bind(this);
-    this.generateID = this.generateID.bind(this);
+    
   }
 
   addToMovieList(newMovie) {
@@ -34,9 +34,6 @@ class App extends React.Component {
         abbreviation: '',
         id: ''
     })
-  }
-  generateID(list) {
-    
   }
  
   render(){
