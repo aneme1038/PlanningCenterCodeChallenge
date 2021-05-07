@@ -109,19 +109,28 @@ form {
 }
 .movie {
   display: flex;
-  padding: 20px 0 20px 0;
+  padding: 10px 0 20px 0;
   border-bottom: 1px solid rgb(211, 211, 211);
+  justify-content: space-between;
 }
 .movieCol1 {
   display: flex;
-  max-width: 10em;
+  max-width: 50px;
   padding: 0;
-  margin-left: 10px;
+  margin-left: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
 }
 .movieCol2 {
   display: flex;
-  max-width: 7em;
-  
+  width: 35%;
+  justify-content: flex-end;
+  padding-top: 5px;
+}
+.movieCol3 {
+  display: flex;
+  width: 35%;
 }
 .movieAbbr {
   display: flex;
@@ -133,7 +142,9 @@ form {
   justify-content: center;
   align-items: center;
   padding-top: 7px;
-  margin-right: 20px;
+}
+.movieHeaders {
+  margin: 0;
 }
 .cr-abbr {
   font-size: 10px;
@@ -143,4 +154,25 @@ form {
   font-family: 'SF Pro Display';
   font-size: 8px;
   color: gray;
+}
+/*Movie Item Button Section*/
+.danger {
+  display: flex;
+  width: 15%;
+}
+.editBtn {
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+}
+.editBtn:hover {
+  color: rgb(255, 111, 0);
+  transform: rotate(45deg);
+}
+.deleteBtn {
+  margin-bottom: 5px;
+}
+.deleteBtn:hover {
+  color: rgb(204, 25, 25)
 }
