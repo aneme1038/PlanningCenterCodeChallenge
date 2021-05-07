@@ -28,22 +28,34 @@ class AddMovie extends React.Component {
     }
     handleSubmit(e) {
        e.preventDefault();
-       //create new movie object based off user input
-       const newMovie = {
+       let bool = this.props.searchMovie(this.state.movieName)
+       console.log(bool);
+       if (bool) {
+            //create new movie object based off user input
+            const newMovie = {
             movieName: this.state.movieName,
             movieCategory: this.state.movieCategory,
             rate: this.state.rate,
             abbreviation: this.state.movieName.match(/\b([A-Z])/g).join('')
+            }
+            //send over newMovie to parent component
+            this.props.handleAdd(newMovie);
+            //reset form
+            this.setState({
+                movieName: '',
+                movieCategory: '',
+                rate: '',
+                abbreviation: ''
+            })
+       } else {
+           this.setState({
+               movieName: '',
+               movieCategory: '',
+               rate: '',
+               abbreviation: ''
+           })
        }
-        //send over newMovie to parent component
-        this.props.handleAdd(newMovie);
-        //reset form
-        this.setState({
-            movieName: '',
-            movieCategory: '',
-            rate: '',
-            abbreviation: ''
-        })
+        
     }
     render() {
         return(

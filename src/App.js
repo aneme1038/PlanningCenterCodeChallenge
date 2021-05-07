@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import AddMovie from './components/AddMovie.js';
 import MovieList from './components/MovieList.js';
+// require('dotenv');
+// const APIKEY = process.env.APIKEY;
 
 class App extends React.Component {
   constructor(props){
@@ -17,18 +19,25 @@ class App extends React.Component {
     this.addToMovieList = this.addToMovieList.bind(this);
     this.editMovie = this.editMovie.bind(this);
     this.deleteMovie = this.deleteMovie.bind(this);
+    this.searchForMovie = this.searchForMovie.bind(this);
+    this.showResults = this.showResults.bind(this);
   }
-
-  componentDidMount(){
-    fetch(`https://www.omdbapi.com/?apikey=${APIKEY}&`)
+  async searchForMovie(movie){
+    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=97bf20a1&t=${movie}`)
     .then(res => res.json())
     .then(
       (result) => {
-        console.log(result);
+        return true
+      },
+      (error) => {
+        return false
       }
     )
   }
 
+  async showResults(movie) {
+    
+  }
   addToMovieList(newMovie) {
     //create new array based off new movie and current movie list
     const newMovieList = [newMovie, ...this.state.movieList]
@@ -67,14 +76,15 @@ class App extends React.Component {
           movieCategory={this.state.movieCategory} 
           rate={this.state.rate}
           abbreviation={this.state.abbreviation}
-          handleAdd={this.addToMovieList} 
+          handleAdd={this.addToMovieList}
+          searchMovie={this.searchForMovie}
         />
         <MovieList 
           movieList={this.state.movieList} 
           editMovie={this.editMovie} 
           deleteMovie={this.deleteMovie}
           index={this.state.index}
-
+          showResults={this.showResults}
         />
       </div>
     );

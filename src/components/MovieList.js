@@ -59,7 +59,7 @@ class MovieList extends React.Component {
     render() {
         return(
             <div className="container movieList">
-                {this.props.movieList.map((movie, index) => {
+                {this.props.movieList.map((movie, index, info, danger) => {
                     return(
                         <div className="row movie" key={index}>
                             <div className="movieCol1">
@@ -69,14 +69,14 @@ class MovieList extends React.Component {
                             </div>
                             <div className="movieCol3">
                                 <div className="movieHeaders">
-                                    <h4 className="sfPro" key={movie.movieName}>{movie.movieName}</h4>
+                                    <h4 className="sfPro movieTitle" key={movie.movieName}>{movie.movieName}</h4>
                                     <h6 className="movieGenre" key={movie.movieCategory}>{movie.movieCategory}</h6>
                                 </div>
                             </div>
                             <div className="movieCol2" key={movie.rate}>
                                 {this.handleRating(movie.rate)}
                             </div>
-                            <div className="danger">
+                            <div className="danger" key={danger}>
                                 <button className="btn btn-sm editBtn" onClick={this.props.editMovie(movie[0])}>✎</button>
                                 <button className="btn btn-sm deleteBtn" onClick={this.props.deleteMovie(movie[0])}>{/*Button icon borrowed from bootstrap icons*/}
                                     <svg 
@@ -92,7 +92,35 @@ class MovieList extends React.Component {
                                     </svg>
                                 </button>
                             </div>
-                        </div>
+                            <div className="row showInfoSection" key={info}>
+                                <button className="btn btn-sm btn-secondary showInfoBtn" onClick={()=>{
+                                    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=97bf20a1&t=${movie.movieName}`)
+                                    .then(res => res.json())
+                                    .then(
+                                      (result) => {
+                                        console.log(result)
+                                        return (
+                                          <div className="resultsBox">
+                                            <ul className="resultList">
+                                              <li>Title: {result.Title}</li>
+                                              <li>Year: {result.Year}</li>
+                                              <li>Rated: {result.Rated}</li>
+                                              <li>Released: {result.Released}</li>
+                                              <li>Runtime: {result.Runtime}</li>
+                                            </ul>
+                                          </div>
+                                        )
+                                      },
+                                      (error) => {
+                                        alert("Error: No Movie By That Name")
+                                        console.log(error);
+                                      }
+                                    )
+                                }}>
+                                    Show Movie Info
+                                </button>
+                            </div>
+                        </div> 
                     )
                 })}
                 
